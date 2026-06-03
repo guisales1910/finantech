@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard Financeiro{% endblock %}
+
+{% block body %}
+
+    <div class="container py-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="mb-0">FinanTech</h1>
+                <small class="text-muted">Controle Financeiro Pessoal</small>
+            </div>
+
+            <a href="#" class="btn btn-primary">
+                Nova Transação
+            </a>
+        </div>
+
+        <div class="row g-4 mb-4">
+
+            <div class="col-md-4">
+                <div class="card border-success shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">
+                            Receitas
+                        </h5>
+                        <h2 class="fw-bold">
+                            R$ 5.250,00
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-danger shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">
+                            Despesas
+                        </h5>
+                        <h2 class="fw-bold">
+                            R$ 2.180,00
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-primary shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">
+                            Saldo Atual
+                        </h5>
+                        <h2 class="fw-bold">
+                            R$ 3.070,00
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h4 class="mb-0">Últimas Transações</h4>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-hover align-middle">
+                    <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>03/06/2026</td>
+                        <td>Salário</td>
+                        <td>
+                        <span class="badge bg-success">
+                            Receita
+                        </span>
+                        </td>
+                        <td class="text-success fw-bold">
+                            + R$ 4.500,00
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>02/06/2026</td>
+                        <td>Mercado</td>
+                        <td>
+                        <span class="badge bg-danger">
+                            Alimentação
+                        </span>
+                        </td>
+                        <td class="text-danger fw-bold">
+                            - R$ 320,00
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>01/06/2026</td>
+                        <td>Internet</td>
+                        <td>
+                        <span class="badge bg-warning text-dark">
+                            Serviços
+                        </span>
+                        </td>
+                        <td class="text-danger fw-bold">
+                            - R$ 99,90
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
