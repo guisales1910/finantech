@@ -1,0 +1,342 @@
+<input type="checkbox" id="sidebar-toggle" class="peer sr-only" />
+
+<label
+    for="sidebar-toggle"
+    aria-hidden="true"
+    class="fixed inset-0 z-30 hidden bg-gray-900/50 peer-checked:block lg:hidden"
+></label>
+
+<div
+    id="dashboard-sidebar"
+    class="fixed inset-y-0 start-0 z-40 flex w-64 -translate-x-full flex-col justify-between overflow-y-auto border-e border-gray-200 bg-white transition-transform duration-300 peer-checked:translate-x-0 lg:static lg:shrink-0 lg:translate-x-0"
+>
+    <div class="p-4">
+
+
+        <div class="flex items-center gap-3">
+            <div class="inline-flex size-16 items-center justify-center">
+                <img
+                    src="{{ asset('images/logoFinantech.png') }}"
+                    alt="FinanTech"
+                    class="size-12 rounded-lg object-contain"
+                >
+            </div>
+
+            <div>
+                <strong class="block text-sm font-semibold text-gray-900">
+                    FinanTech
+                </strong>
+
+                <span class="text-xs text-gray-500">
+                    Controle financeiro
+                </span>
+            </div>
+        </div>
+
+        {# Menu #}
+        <nav aria-label="FinanTech" class="mt-6">
+            <ul class="space-y-1">
+
+                {# Dashboard #}
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 rounded-lg bg-gray-100 px-4 py-2.5 text-sm font-medium text-gray-900"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="size-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6"
+                            />
+                        </svg>
+
+                        Dashboard
+                    </a>
+                </li>
+
+                {# Receitas #}
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="size-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 4v16m8-8H4"
+                            />
+                        </svg>
+
+                        Receitas
+                    </a>
+                </li>
+
+                {# Despesas #}
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="size-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 20V4m0 0l-6 6m6-6l6 6"
+                            />
+                        </svg>
+
+                        Despesas
+                    </a>
+                </li>
+
+                {# Transações #}
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="size-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8 7h12M8 12h12M8 17h12M4 7h.01M4 12h.01M4 17h.01"
+                            />
+                        </svg>
+
+                        Transações
+                    </a>
+                </li>
+
+                {# Categorias #}
+                <li>
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="size-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        </svg>
+
+                        Categorias
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <div data-controller="receita">
+            <button
+                type="button"
+                class="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gray-700"
+                data-action="click->receita#abrir"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4v16m8-8H4"
+                    />
+                </svg>
+
+                Adicionar receita
+            </button>
+
+            <div
+                data-receita-target="modal"
+                id="modal-adicionar-receita"
+                class="fixed inset-0 z-50 hidden items-center justify-center bg-gray-900/50 p-4"
+            >
+                <div class="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+
+                    <div class="mb-6 flex items-center justify-between">
+                        <div>
+                            <h2 class="text-lg font-semibold text-gray-900">
+                                Adicionar receita
+                            </h2>
+
+                            <p class="mt-1 text-sm text-gray-500">
+                                Cadastre uma nova receita.
+                            </p>
+                        </div>
+
+                        <button
+                            data-action="click->receita#fechar"
+                            type="button"
+                            class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900"
+                        >
+                            ✕
+                        </button>
+                    </div>
+
+                    <form data-action="submit->receita#salvarReceita">
+
+                        <div class="mb-4">
+                            <label
+                                for="descricao"
+                                class="mb-1 block text-sm font-medium text-gray-700"
+                            >
+                                Descrição
+                            </label>
+
+                            <input
+                                type="text"
+                                id="descricao"
+                                name="descricao"
+                                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-gray-900"
+                                placeholder="Ex: Salário"
+                            >
+                        </div>
+
+                        <div class="mb-4">
+                            <label
+                                for="valor"
+                                class="mb-1 block text-sm font-medium text-gray-700"
+                            >
+                                Valor
+                            </label>
+
+                            <input
+                                type="number"
+                                id="valor"
+                                name="valor"
+                                step="0.01"
+                                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-gray-900"
+                                placeholder="0,00"
+                            >
+                        </div>
+
+                        <div class="mb-6">
+                            <label
+                                for="data"
+                                class="mb-1 block text-sm font-medium text-gray-700"
+                            >
+                                Data
+                            </label>
+
+                            <input
+                                type="date"
+                                id="data"
+                                name="data"
+                                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-gray-900"
+                            >
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-gray-700"
+                        >
+                            Salvar receita
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    {# Usuário / Sair #}
+    <div class="sticky inset-x-0 bottom-0 border-t border-gray-200">
+
+        <a
+            href="#"
+            class="flex items-center gap-3 bg-white p-4 transition-colors hover:bg-gray-50"
+        >
+            <span
+                class="grid size-10 shrink-0 place-content-center rounded-full bg-gray-100 text-sm font-semibold text-gray-600"
+            >
+                G
+            </span>
+
+            <div class="min-w-0">
+                <strong class="block truncate text-xs font-medium text-gray-900">
+                    Guilherme
+                </strong>
+
+                <span class="block truncate text-xs text-gray-500">
+                    Minha conta
+                </span>
+            </div>
+        </a>
+
+        <a
+            href="#"
+            class="flex items-center gap-3 border-t border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
+        >
+            <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                />
+            </svg>
+
+            Sair
+        </a>
+
+    </div>
+</div>

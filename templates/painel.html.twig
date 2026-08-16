@@ -1,0 +1,188 @@
+
+<main class="flex-1 space-y-6 p-6">
+
+
+    {# Cards #}
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+
+        <article class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6">
+
+            <div>
+                <strong class="block text-sm font-medium text-gray-600">
+                    Receitas
+                </strong>
+
+                <p>
+                    <span class="text-2xl font-medium text-gray-900">
+                        R$ 5.250,00
+                    </span>
+                </p>
+            </div>
+
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6">
+
+            <div>
+                <strong class="block text-sm font-medium text-gray-600">
+                    Despesas
+                </strong>
+
+                <p>
+                    <span class="text-2xl font-medium text-gray-900">
+                        R$ 2.180,00
+                    </span>
+                </p>
+            </div>
+
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6">
+
+            <div>
+                <strong class="block text-sm font-medium text-gray-600">
+                    Saldo atual
+                </strong>
+
+                <p>
+                    <span class="text-2xl font-medium text-gray-900">
+                        R$ 3.070,00
+                    </span>
+                </p>
+            </div>
+
+        </article>
+
+    </div>
+
+    {# Área dos gráficos #}
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+
+        <div class="rounded-lg border border-gray-200 bg-white p-6 lg:col-span-2">
+
+            <div class="flex items-center justify-between">
+
+                <h2 class="text-sm font-medium text-gray-900">
+                    Evolução das receitas
+                </h2>
+
+                <div class="inline-flex rounded-md border border-gray-200 p-0.5 text-xs font-medium">
+                    <button
+                        type="button"
+                        class="rounded-sm bg-gray-100 px-2 py-1 text-gray-900"
+                    >
+                        6M
+                    </button>
+
+                    <button
+                        type="button"
+                        class="rounded-sm px-2 py-1 text-gray-600"
+                    >
+                        12M
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="mt-4 h-64">
+                <canvas id="revenue-trend-line-chart"></canvas>
+            </div>
+
+        </div>
+
+        <div class="rounded-lg border border-gray-200 bg-white p-6">
+
+            <h2 class="text-sm font-medium text-gray-900">
+                Distribuição financeira
+            </h2>
+
+            <div class="mt-4 h-64">
+                <canvas id="financial-donut-chart"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+    {# Últimas transações #}
+    <div class="rounded-lg border border-gray-200 bg-white p-6">
+
+        <h2 class="text-sm font-medium text-gray-900">
+            Últimas transações
+        </h2>
+
+        <div class="mt-4 overflow-x-auto">
+
+            <table class="min-w-full divide-y-2 divide-gray-200">
+
+                <thead>
+                <tr class="*:font-medium *:text-gray-900">
+                    <th class="px-3 py-2 text-left whitespace-nowrap">
+                        Data
+                    </th>
+
+                    <th class="px-3 py-2 text-left whitespace-nowrap">
+                        Descrição
+                    </th>
+
+                    <th class="px-3 py-2 text-left whitespace-nowrap">
+                        Tipo
+                    </th>
+
+                    <th class="px-3 py-2 text-right whitespace-nowrap">
+                        Valor
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody class="divide-y divide-gray-200">
+
+                <tr class="*:text-gray-900">
+                    <td class="px-3 py-2 whitespace-nowrap">
+                        03/06/2026
+                    </td>
+
+                    <td class="px-3 py-2 whitespace-nowrap">
+                        Salário
+                    </td>
+
+                    <td class="px-3 py-2 whitespace-nowrap">
+                            <span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs text-green-700">
+                                Receita
+                            </span>
+                    </td>
+
+                    <td class="px-3 py-2 text-right whitespace-nowrap text-green-600">
+                        + R$ 4.500,00
+                    </td>
+                </tr>
+
+                <tr class="*:text-gray-900">
+                    <td class="px-3 py-2 whitespace-nowrap">
+                        02/06/2026
+                    </td>
+
+                    <td class="px-3 py-2 whitespace-nowrap">
+                        Mercado
+                    </td>
+
+                    <td class="px-3 py-2 whitespace-nowrap">
+                            <span class="rounded-full bg-red-100 px-2.5 py-0.5 text-xs text-red-700">
+                                Despesa
+                            </span>
+                    </td>
+
+                    <td class="px-3 py-2 text-right whitespace-nowrap text-red-600">
+                        - R$ 320,00
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
