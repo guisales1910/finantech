@@ -1,181 +1,67 @@
+<main class="flex-1 p-6">
 
-<main class="flex-1 space-y-6 p-6">
+    {# Lista de receitas #}
+    <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
 
+        <div class="overflow-x-auto">
 
-    {# Cards #}
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-
-        <article class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6">
-
-            <div>
-                <strong class="block text-sm font-medium text-gray-600">
-                    Receitas
-                </strong>
-
-                <p>
-                    <span class="text-2xl font-medium text-gray-900">
-                        R$ 5.250,00
-                    </span>
-                </p>
-            </div>
-
-        </article>
-
-        <article class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6">
-
-            <div>
-                <strong class="block text-sm font-medium text-gray-600">
-                    Despesas
-                </strong>
-
-                <p>
-                    <span class="text-2xl font-medium text-gray-900">
-                        R$ 2.180,00
-                    </span>
-                </p>
-            </div>
-
-        </article>
-
-        <article class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6">
-
-            <div>
-                <strong class="block text-sm font-medium text-gray-600">
-                    Saldo atual
-                </strong>
-
-                <p>
-                    <span class="text-2xl font-medium text-gray-900">
-                        R$ 3.070,00
-                    </span>
-                </p>
-            </div>
-
-        </article>
-
-    </div>
-
-    {# Área dos gráficos #}
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-
-        <div class="rounded-lg border border-gray-200 bg-white p-6 lg:col-span-2">
-
-            <div class="flex items-center justify-between">
-
-                <h2 class="text-sm font-medium text-gray-900">
-                    Evolução das receitas
-                </h2>
-
-                <div class="inline-flex rounded-md border border-gray-200 p-0.5 text-xs font-medium">
-                    <button
-                        type="button"
-                        class="rounded-sm bg-gray-100 px-2 py-1 text-gray-900"
-                    >
-                        6M
-                    </button>
-
-                    <button
-                        type="button"
-                        class="rounded-sm px-2 py-1 text-gray-600"
-                    >
-                        12M
-                    </button>
-                </div>
-
-            </div>
-
-            <div class="mt-4 h-64">
-                <canvas id="revenue-trend-line-chart"></canvas>
-            </div>
-
-        </div>
-
-        <div class="rounded-lg border border-gray-200 bg-white p-6">
-
-            <h2 class="text-sm font-medium text-gray-900">
-                Distribuição financeira
-            </h2>
-
-            <div class="mt-4 h-64">
-                <canvas id="financial-donut-chart"></canvas>
-            </div>
-
-        </div>
-
-    </div>
-
-    {# Últimas transações #}
-    <div class="rounded-lg border border-gray-200 bg-white p-6">
-
-        <h2 class="text-sm font-medium text-gray-900">
-            Últimas transações
-        </h2>
-
-        <div class="mt-4 overflow-x-auto">
-
-            <table class="min-w-full divide-y-2 divide-gray-200">
+            <table class="min-w-full divide-y divide-gray-200">
 
                 <thead>
-                <tr class="*:font-medium *:text-gray-900">
-                    <th class="px-3 py-2 text-left whitespace-nowrap">
+                <tr class="bg-gray-50">
+
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
                         Data
                     </th>
 
-                    <th class="px-3 py-2 text-left whitespace-nowrap">
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
                         Descrição
                     </th>
 
-                    <th class="px-3 py-2 text-left whitespace-nowrap">
-                        Tipo
-                    </th>
-
-                    <th class="px-3 py-2 text-right whitespace-nowrap">
+                    <th class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-500">
                         Valor
                     </th>
+
                 </tr>
                 </thead>
 
-                <tbody class="divide-y divide-gray-200">
 
-                <tr class="*:text-gray-900">
-                    <td class="px-3 py-2 whitespace-nowrap">
-                        03/06/2026
-                    </td>
+                <tbody class="divide-y divide-gray-100">
 
-                    <td class="px-3 py-2 whitespace-nowrap">
-                        Salário
-                    </td>
+                {% for receita in receitas %}
 
-                    <td class="px-3 py-2 whitespace-nowrap">
-                            <span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs text-green-700">
-                                Receita
+                    <tr class="transition-colors hover:bg-gray-50">
+
+                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-600">
+                            {{ receita.data|date('d/m/Y') }}
+                        </td>
+
+                        <td class="px-6 py-4">
+                            <span class="text-sm font-medium text-gray-900">
+                                {{ receita.descricao }}
                             </span>
-                    </td>
+                        </td>
 
-                    <td class="px-3 py-2 text-right whitespace-nowrap text-green-600">
-                        + R$ 4.500,00
-                    </td>
-                </tr>
-
-                <tr class="*:text-gray-900">
-                    <td class="px-3 py-2 whitespace-nowrap">
-                        02/06/2026
-                    </td>
-
-                    <td class="px-3 py-2 whitespace-nowrap">
-                        Mercado
-                    </td>
-
-                    <td class="px-3 py-2 whitespace-nowrap">
-                            <span class="rounded-full bg-red-100 px-2.5 py-0.5 text-xs text-red-700">
-                                Despesa
+                        <td class="whitespace-nowrap px-6 py-4 text-right">
+                            <span class="text-sm font-semibold text-gray-900">
+                                R$ {{ receita.valor }}
                             </span>
-                    </td>
+                        </td>
 
-                    <td class="px-3 py-2 text-right whitespace-nowrap text-red-600">
-                        - R$ 320,00
-                    </td>
-                </tr>
+                    </tr>
+
+                {% else %}
+
+                    <tr>
+                        <td
+                            colspan="3"
+                            class="px-6 py-12 text-center text-sm text-gray-500"
+                        >
+                            Nenhuma receita cadastrada nos últimos 30 dias.
+                        </td>
+                    </tr>
+
+                {% endfor %}
 
                 </tbody>
 
@@ -184,5 +70,74 @@
         </div>
 
     </div>
+
+    <form action="{{ path('receita_criar') }}" method="POST" class="space-y-4">
+
+        <div>
+            <label
+                for="descricao"
+                class="mb-1 block text-sm font-medium text-gray-700"
+            >
+                Descrição
+            </label>
+
+            <input
+                type="text"
+                id="descricao"
+                name="descricao"
+                placeholder="Ex: Salário"
+                required
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+            >
+        </div>
+
+        {# Valor #}
+        <div>
+            <label
+                for="valor"
+                class="mb-1 block text-sm font-medium text-gray-700"
+            >
+                Valor
+            </label>
+
+            <input
+                type="number"
+                id="valor"
+                name="valor"
+                placeholder="Ex: 6400.00"
+                step="0.01"
+                min="0"
+                required
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+            >
+        </div>
+
+        {# Data #}
+        <div>
+            <label
+                for="data"
+                class="mb-1 block text-sm font-medium text-gray-700"
+            >
+                Data
+            </label>
+
+            <input
+                type="date"
+                id="data"
+                name="data"
+                required
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+            >
+        </div>
+
+        {# Botão #}
+        <button
+            type="submit"
+            class="w-full rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-700"
+        >
+            Adicionar receita
+        </button>
+
+    </form>
 
 </main>
