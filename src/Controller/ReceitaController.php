@@ -33,8 +33,6 @@ class ReceitaController extends AbstractController
             $valor,
             $data
         );
-
-        // Depois de criar, volta para a lista
         return $this->redirectToRoute('receitas');
     }
 
@@ -51,4 +49,6 @@ class ReceitaController extends AbstractController
             'receitas' => $receitas,
         ]);
     }
+
+
 }

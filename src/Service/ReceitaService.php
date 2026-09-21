@@ -66,6 +66,39 @@ class ReceitaService
         $this->entityManager->flush();
     }
 
+    public function calcularTotalUltimos30Dias(): float
+    {
+        // Busca no Repository todas as receitas cadastradas
+        // dentro dos últimos 30 dias.
+        //
+        // O retorno é um array de objetos Receita.
+        $receitas = $this->receitaRepository->listarReceitasUltimos30Dias();
+
+        // Criamos uma variável para armazenar o total.
+        // Começamos com 0 porque ainda não somamos nenhuma receita.
+        $total = 0;
+
+        // Percorremos cada objeto Receita que veio do Repository.
+        //
+        // A cada repetição, $receita representa uma receita
+        // individual da lista.
+        foreach ($receitas as $receita) {
+
+            // Pegamos o valor da receita através do getter.
+            //
+            // Como o Doctrine pode retornar o DECIMAL como string,
+            // fazemos a conversão para float antes de somar.
+            $total += (float) $receita->getValor();
+        }
+
+        // Depois que o foreach terminou,
+        // retornamos o valor acumulado.
+        return $total;
+    }
+
+
+
+
 
 }
 
