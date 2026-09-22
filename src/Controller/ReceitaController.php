@@ -51,4 +51,25 @@ class ReceitaController extends AbstractController
     }
 
 
+    #[Route('/receita/excluir/{id}', name: 'receita_excluir', methods: ['POST'])]
+    public function excluir( ReceitaService $receitaService, int $id): Response {
+
+        $receita = $receitaService->buscarPorId($id);
+
+        // Verifica se a receita realmente existe.
+        if (!$receita) {
+            throw $this->createNotFoundException('Receita não encontrada.');
+        }
+
+        // Envia o objeto Receita para o Service excluir.
+        $receitaService->excluirReceita($receita);
+
+        // Depois da exclusão, volta para a lista.
+        return $this->redirectToRoute('receitas');
+    }
+
+
+
+
+
 }

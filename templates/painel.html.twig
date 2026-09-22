@@ -48,6 +48,16 @@
                             </span>
                         </td>
 
+                        <td>
+                            <form action="{{ path('receita_excluir', {id: receita.id})}}" method="POST" class="space-y-4">
+                                <button>
+                                    Excluir
+                                </button>
+                            </form>
+                        </td>
+
+
+
                     </tr>
 
                 {% else %}
@@ -139,5 +149,7 @@
         </button>
 
     </form>
+
+
 
 </main>

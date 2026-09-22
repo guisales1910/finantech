@@ -60,6 +60,11 @@ class ReceitaService
         return $receita;
     }
 
+    public function buscarPorId(int $id): ?Receita
+    {
+        return $this->receitaRepository->buscarPorId($id);
+    }
+
     public function excluirReceita(Receita $receita): Void
     {
         $this->entityManager->remove($receita);
